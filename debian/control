@@ -1,0 +1,43 @@
+Source: antlr4-cpp-runtime
+Priority: optional
+Maintainer: WiltonDB Software <info@wiltondb.com>
+Build-Depends:
+ cmake,
+ debhelper-compat (= 12),
+ libutfcpp-dev,
+ pkg-config,
+ uuid-dev,
+Standards-Version: 4.5.0
+Section: libs
+Homepage: https://www.antlr.org
+Vcs-Browser: https://github.com/wiltondb/antlr4_cpp_runtime_ubuntu_deb
+Vcs-Git: https://github.com/wiltondb/antlr4_cpp_runtime_ubuntu_deb.git
+
+Package: libantlr4-runtime-dev
+Section: libdevel
+Architecture: any
+Multi-Arch: same
+Depends:
+ libantlr4-runtime4.9.3 (= ${binary:Version}),
+ ${misc:Depends},
+Description: ANTLR Parser Generator - C++ runtime support (development files)
+ ANTLR (ANother Tool for Language Recognition) is a powerful parser generator
+ for reading, processing, executing, or translating structured text or binary
+ files. It's widely used to build languages, tools, and frameworks. From a
+ grammar, ANTLR generates a parser that can build and walk parse trees.
+ .
+ This package contains the development files of C++ runtime support for ANTLR.
+
+Package: libantlr4-runtime4.9.3
+Architecture: any
+Multi-Arch: same
+Depends:
+ ${misc:Depends},
+ ${shlibs:Depends},
+Description: ANTLR Parser Generator - C++ runtime support (shared library)
+ ANTLR (ANother Tool for Language Recognition) is a powerful parser generator
+ for reading, processing, executing, or translating structured text or binary
+ files. It's widely used to build languages, tools, and frameworks. From a
+ grammar, ANTLR generates a parser that can build and walk parse trees.
+ .
+ This package contains the shared library of C++ runtime support for ANTLR.

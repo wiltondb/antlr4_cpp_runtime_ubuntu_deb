@@ -1,0 +1,22 @@
+#!/usr/bin/make -f
+
+include /usr/share/dpkg/pkg-info.mk
+
+export DEB_BUILD_MAINT_OPTIONS = hardening=+all
+export DEB_VERSION_UPSTREAM_ORIG = $(shell echo $(DEB_VERSION_UPSTREAM) | cut -d + -f 1)
+
+%:
+	dh $@
+
+override_dh_install:
+	dh_install
+	dh_install -plibantlr4-runtime$(DEB_VERSION_UPSTREAM_ORIG) \
+		'usr/lib/*.so.*' usr/lib/$(DEB_HOST_MULTIARCH)
+	dh_install -plibantlr4-runtime-dev \
+		'usr/lib/*.so' usr/lib/$(DEB_HOST_MULTIARCH)
+	dh_install -plibantlr4-runtime-dev \
+		'usr/lib/*.a' usr/lib/$(DEB_HOST_MULTIARCH)
+
+override_dh_auto_clean:
+	dh_auto_clean
+	rm -rf dist
