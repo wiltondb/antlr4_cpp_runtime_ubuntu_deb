@@ -1,4 +1,4 @@
-antlr4-cpp-runtime (4.9.3+wiltondb-1) UNRELEASED; urgency=medium
+antlr4-cpp-runtime (1:4.9.3+wiltondb-1~UNRELEASED) UNRELEASED; urgency=medium
 
   * Upstream version 4.9.3
 
